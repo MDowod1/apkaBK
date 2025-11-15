@@ -4,7 +4,7 @@
   "theme_color": "#ce036e",
   "background_color": "#ce036e",
   "display": "standalone",
-  "start_url": "apkabk.html",
+  "start_url": "ekran_logowania.html",
   "icons": [
   {
     "src": "imagesapkabk/logo.png",
