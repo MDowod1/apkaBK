@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Załatw sprawę</title>
+    <link rel="icon" type="image/x-icon" href="assets/app/images/logo.png">
+    <link rel="apple-touch-icon" href="assets/app/images/logo.png">
+    <link rel="stylesheet" href="assets/app/main.css">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --card-bg: #a31a1a;
+            --text-primary: #fff;
+            --text-secondary: #b0b0b0;
+            --blue: #2d8cff;
+            --radius: 16px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text-primary);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            padding: 24px 18px 0px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 23px;
+            padding: 20px;
+            margin: 0 0 8px;
+            font-weight: 600;
+            color: black;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-align: center;
+        }
+
+        .topbar_fixed {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 6px 16px 12px;
+            background: #ffffff;
+            position: sticky;
+            top: 0;
+            margin-top: 6px;
+            z-index: 1000;
+        }
+
+        .title_text_fixed {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-weight: 600;
+            font-size: 20px;
+            color: #000000;
+            white-space: nowrap;
+            margin: 0;
+            text-align: center;
+            line-height: 1;
+        }
+
+        .pin-inputs {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .pin-input {
+            width: 50px;  /* Większe kwadraciki */
+            height: 70px;  /* Większe kwadraciki */
+            text-align: center;
+            font-size: 30px;  /* Większy tekst w kwadracikach */
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            margin: 0 12px;  /* Oddalenie kwadracików */
+        }
+
+        .pin-input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .forgot-pin {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .forgot-pin a {
+            font-size: 18px;
+            color: #a0002c;
+            font-weight: 600;
+            text-decoration: none;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .forgot-pin a:hover {
+            text-decoration: underline;
+        }
+
+        /* Klawiatura numeryczna */
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 300px;
+        }
+
+        .buttons button {
+            padding: 20px;
+            font-size: 24px;
+            background: #f0f0f0;
+            border: 2px solid #ccc;
+            border-radius: 12px;
+            cursor: pointer;
+            height: 70px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .buttons button:hover {
+            background: #007bff;
+            color: #fff;
+        }
+
+        .buttons button:active {
+            background: #0056b3;
+            color: #fff;
+        }
+
+        .buttons button:focus {
+            outline: none;
+            border-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+
+<header class="topbar_fixed">
+    <a class="backBtn" onclick="window.location.href='ekran_logowania.html'">
+        <img src="imagesapkabk/right_arrow_left.png" class="back_img_fixed" alt="" style="width:24px; height:auto; margin-top:6.5px;">
+    </a>
+    <div class="title_text_fixed">Zaloguj się</div>
+</header>
+
+<main>
+    <h1>Wprowadź PIN</h1>
+
+    <!-- PIN inputs -->
+    <div class="pin-inputs">
+        <input type="text" maxlength="1" class="pin-input" id="pin1">
+        <input type="text" maxlength="1" class="pin-input" id="pin2">
+        <input type="text" maxlength="1" class="pin-input" id="pin3">
+        <input type="text" maxlength="1" class="pin-input" id="pin4">
+    </div>
+
+    <!-- "Nie pamiętam kodu PIN" text -->
+    <div class="forgot-pin">
+        <a href="#">Nie pamiętam kodu PIN</a>
+    </div>
+
+    <!-- Numeric keypad -->
+    <div class="buttons">
+        <button onclick="enterPin('1')">1</button>
+        <button onclick="enterPin('2')">2</button>
+        <button onclick="enterPin('3')">3</button>
+        <button onclick="enterPin('4')">4</button>
+        <button onclick="enterPin('5')">5</button>
+        <button onclick="enterPin('6')">6</button>
+        <button onclick="enterPin('7')">7</button>
+        <button onclick="enterPin('8')">8</button>
+        <button onclick="enterPin('9')">9</button>
+        <button onclick="clearPin()">C</button>
+        <button onclick="enterPin('0')">0</button>
+        <button onclick="submitPin()">OK</button>
+    </div>
+</main>
+
+<script>
+    function enterPin(number) {
+        for (let i = 1; i <= 4; i++) {
+            if (document.getElementById('pin' + i).value === '') {
+                document.getElementById('pin' + i).value = number;
+                break;
+            }
+        }
+    }
+
+    function clearPin() {
+        for (let i = 4; i >= 1; i--) {
+            if (document.getElementById('pin' + i).value !== '') {
+                document.getElementById('pin' + i).value = '';
+                break;
+            }
+        }
+    }
+
+    function submitPin() {
+    let pin = '';
+    for (let i = 1; i <= 4; i++) {
+        pin += document.getElementById('pin' + i).value;
+    }
+
+    if (pin.length === 4) {
+        // Przekierowanie na stronę apkabk.html po poprawnym wprowadzeniu PIN-u
+        window.location.href = 'apkabk.html';
+    } else {
+        alert("Proszę wprowadzić pełny PIN");
+    }
+    }
+
+</script>
+</body>
+</html>
