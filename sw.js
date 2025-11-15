@@ -1,4 +1,4 @@
-const CACHE_NAME = 'moja-strona-cache-v2';
+const CACHE_NAME = 'moja-strona-cache-v3';
 const URLS_TO_CACHE = [
   './',
   './apkabk.html',
@@ -54,3 +54,4 @@ self.addEventListener('activate', function(event) {
     )
   );
 });
+
