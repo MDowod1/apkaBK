@@ -1,8 +1,8 @@
 {
   "name": "Millenium",
   "short_name": "Millenium",
-  "theme_color": "#101317",
-  "background_color": "#101317",
+  "theme_color": "#ce036e",
+  "background_color": "#ce036e",
   "display": "standalone",
   "start_url": "apkabk.html",
   "icons": [
