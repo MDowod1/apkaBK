@@ -1,9 +1,12 @@
-const CACHE_NAME = 'moja-strona-cache-v1';
+const CACHE_NAME = 'moja-strona-cache-v2';
 const URLS_TO_CACHE = [
   './',
   './apkabk.html',
   './css/main.css',
   './css/apkabk.css',
+  './css/fonts.css',
+  './imagesapkabk/logo.jpg',
+  './scale.js',
   
   
   
