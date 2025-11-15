@@ -7,6 +7,9 @@ const URLS_TO_CACHE = [
   './css/fonts.css',
   './imagesapkabk/logo.jpg',
   './scale.js',
+  './ekran_logowania.html',
+  './haslo.html'
+  './ekran_logowania.css',
   
   
   
